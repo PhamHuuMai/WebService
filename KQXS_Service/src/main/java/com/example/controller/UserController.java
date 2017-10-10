@@ -3,10 +3,12 @@ package com.example.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.constans.ResponseCode;
 import com.example.request.LoginRequest;
 import com.example.response.Response;
 import com.example.service.UserService;
@@ -18,6 +20,7 @@ public class UserController {
 	@Autowired
 	UserService userService;
 
+	@PostMapping()
 	public ResponseEntity<Response> login(@RequestBody LoginRequest request) {
 		Response response = new Response();
 		try {
@@ -25,10 +28,10 @@ public class UserController {
 				throw new Exception();
 			}
 			if (userService.login(request.getAccount(), request.getPassword())) {
-				response.setCode(0);
+				response.setCode(ResponseCode.SUSSESS);
 			}
 		} catch (Exception e) {
-			response.setCode(1);
+			response.setCode(ResponseCode.UNKNOWN_ERROR);
 		}
 		return new ResponseEntity<Response>(response, HttpStatus.OK);
 	}
