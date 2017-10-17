@@ -7,11 +7,51 @@ public class ResultResponse {
 	private String lottezyName;
 	private String date; // ddMMyyyy
 	private List<String> specialPrize;
-	private List<String> first_prize;
-	private List<String> second_prize;
-	private List<String> third_prize;
-	private List<String> fourty_prize;
-	private List<String> fifty_prize;
+	private List<String> firstPrize;
+	private List<String> secondPrize;
+	private List<String> thirdPrize;
+	private List<String> fourtyPrize;
+	private List<String> fiftyPrize;
+
+	public List<String> getFirstPrize() {
+		return firstPrize;
+	}
+
+	public void setFirstPrize(List<String> firstPrize) {
+		this.firstPrize = firstPrize;
+	}
+
+	public List<String> getSecondPrize() {
+		return secondPrize;
+	}
+
+	public void setSecondPrize(List<String> secondPrize) {
+		this.secondPrize = secondPrize;
+	}
+
+	public List<String> getThirdPrize() {
+		return thirdPrize;
+	}
+
+	public void setThirdPrize(List<String> thirdPrize) {
+		this.thirdPrize = thirdPrize;
+	}
+
+	public List<String> getFourtyPrize() {
+		return fourtyPrize;
+	}
+
+	public void setFourtyPrize(List<String> fourtyPrize) {
+		this.fourtyPrize = fourtyPrize;
+	}
+
+	public List<String> getFiftyPrize() {
+		return fiftyPrize;
+	}
+
+	public void setFiftyPrize(List<String> fiftyPrize) {
+		this.fiftyPrize = fiftyPrize;
+	}
 
 	public String getLottezyId() {
 		return lottezyId;
@@ -43,46 +83,6 @@ public class ResultResponse {
 
 	public void setSpecialPrize(List<String> specialPrize) {
 		this.specialPrize = specialPrize;
-	}
-
-	public List<String> getFirst_prize() {
-		return first_prize;
-	}
-
-	public void setFirst_prize(List<String> first_prize) {
-		this.first_prize = first_prize;
-	}
-
-	public List<String> getSecond_prize() {
-		return second_prize;
-	}
-
-	public void setSecond_prize(List<String> second_prize) {
-		this.second_prize = second_prize;
-	}
-
-	public List<String> getThird_prize() {
-		return third_prize;
-	}
-
-	public void setThird_prize(List<String> third_prize) {
-		this.third_prize = third_prize;
-	}
-
-	public List<String> getFourty_prize() {
-		return fourty_prize;
-	}
-
-	public void setFourty_prize(List<String> fourty_prize) {
-		this.fourty_prize = fourty_prize;
-	}
-
-	public List<String> getFifty_prize() {
-		return fifty_prize;
-	}
-
-	public void setFifty_prize(List<String> fifty_prize) {
-		this.fifty_prize = fifty_prize;
 	}
 
 }

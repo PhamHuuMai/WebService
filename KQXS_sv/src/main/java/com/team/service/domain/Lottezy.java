@@ -13,6 +13,12 @@ public class Lottezy {
 	@Field("address")
 	private String address;
 
+	public Lottezy(String name, String address) {
+		super();
+		this.name = name;
+		this.address = address;
+	}
+
 	public String getId() {
 		return id;
 	}
