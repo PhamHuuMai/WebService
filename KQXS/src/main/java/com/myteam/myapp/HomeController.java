@@ -1,8 +1,5 @@
 package com.myteam.myapp;
 
-import java.text.DateFormat;
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
@@ -11,10 +8,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import com.myteam.myapp.dto.LottezyDTO;
 import com.myteam.myapp.dto.ResultDTO;
@@ -41,12 +36,12 @@ public class HomeController {
 	public String tableResult(String lottezyId, String date, Model model) {
 		try {
 			// validator
-
+			System.out.println(lottezyId + " === " + date);
 			// call API
 			ResultDTO resultDTO = APIService.getResultTable(lottezyId, date);
 			model.addAttribute("prizes", resultDTO);
 		} catch (Exception e) {
-            e.printStackTrace();
+			return "error";
 		}
 		return "ResultTable";
 	}
@@ -59,6 +54,7 @@ public class HomeController {
 			model.addAttribute("list", list);
 		} catch (Exception e) {
 			e.printStackTrace();
+			return "error";
 		}
 		return "listlottezy";
 	}

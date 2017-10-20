@@ -18,12 +18,15 @@ import com.myteam.myapp.util.JSONUtils;
 
 @Service
 public class APIService {
+	
 	public ResultDTO getResultTable(String lottezyId, String date)
 			throws Exception {
 		ResultDTO resultDTO = new ResultDTO();
 		Map<String, Object> params = new HashMap<String, Object>();
 		if (date != null ) {
 			params.put("date", date);
+		}else {
+			params.put("date", "");
 		}
 		JSONObject result = APIUtils.callAPI(Constant.HOST, "lottezy/"
 				+ lottezyId, HttpMethod.GET, params);
@@ -51,7 +54,6 @@ public class APIService {
 		List<LottezyDTO> lottezies = new ArrayList<LottezyDTO>();
 		JSONObject result = APIUtils.callAPI(Constant.HOST, "lottezy",
 				HttpMethod.GET, params);
-		System.out.println("11");
 		// convert JsonObject to ResultDTO
 		if (result.getInt("code") == 0) {
 			JSONArray data = result.getJSONArray("data");
@@ -65,4 +67,5 @@ public class APIService {
 		}
 		return lottezies;
 	}
+
 }
