@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Bootstrap Example</title>
+<title>Demo webservice</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet"
@@ -21,7 +21,7 @@
 	<div class="container">
 		<!-- header  -->
 		<div class="jumbotron" style="padding-top: 0px;">
-			<h3>KQXS</h3>
+			<h3>Demo webservice</h3>
 			<img style="margin-left: 500px; height: 55;" src="lights.jpg"
 				class="img-circle img-thumbnail" width="100" height="80">
 		</div>

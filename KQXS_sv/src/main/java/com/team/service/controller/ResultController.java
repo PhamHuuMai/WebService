@@ -1,5 +1,6 @@
 package com.team.service.controller;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -49,25 +50,21 @@ public class ResultController {
 			resultResponse.setLottezyId(lottezy.getId());
 			resultResponse.setLottezyName(lottezy.getName());
 			Result result = new Result();
-			if (date == null || date.isEmpty()) {
+			if (date == null || date.isEmpty() ) {
 				// GET result nearest
 				result = resultService.getResultNearest(lottezyId);
-
-				System.out.println("null");
+				System.out.println("not null");
 			} else {
 				// GET result by date
-				result = resultService.getResultNearest(lottezyId);
-				System.out.println("not null");
+				result = resultService.getResult(lottezyId, date);
+				System.out.println("null");
 			}
 			if (result == null) {
 				response.setCode(1);
 				return new ResponseEntity<Response>(response, HttpStatus.OK);
 			}
 			// mapper result vs ResultResponse
-			Date dateD = new Date(result.getDateTime());
-			String dateStr = dateD.getYear() + "-" + dateD.getMonth() + "-"
-					+ dateD.getDate();
-			resultResponse.setDate(dateStr);
+			resultResponse.setDate(result.getDateTime());
 			resultResponse.setSpecialPrize(result.getSpecialPrize());
 			resultResponse.setFirstPrize(result.getFirstPrize());
 			resultResponse.setSecondPrize(result.getSecondPrize());
@@ -79,6 +76,7 @@ public class ResultController {
 			response.setData(resultResponse);
 			response.setCode(0);
 		} catch (Exception e) {
+			e.printStackTrace();
 			response.setCode(1);
 		}
 		return new ResponseEntity<Response>(response, HttpStatus.OK);
@@ -90,8 +88,7 @@ public class ResultController {
 		Response response = new Response();
 		try {
 			// validate param
-			 resultService.initData();
-		
+			resultService.initData();
 			ResultResponse resultResponse = new ResultResponse();
 			// get data by lottezyId to resultResponse
 			response.setData(resultResponse);

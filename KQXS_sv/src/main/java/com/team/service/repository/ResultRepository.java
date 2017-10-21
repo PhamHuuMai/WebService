@@ -10,7 +10,7 @@ import java.util.List;
 
 public interface ResultRepository extends MongoRepository<Result, String> {
 	
-	Result findByLottezyIdAndDateTime(String lottezyid, long dateTime);
+	Result findByLottezyIdAndDateTime(String lottezyid, String dateTime);
 
 	List<Result> findById(String id, Sort sort);
 

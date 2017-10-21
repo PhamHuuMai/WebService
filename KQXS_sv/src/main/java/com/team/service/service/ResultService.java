@@ -1,6 +1,7 @@
 package com.team.service.service;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -12,6 +13,7 @@ import com.team.service.domain.Lottezy;
 import com.team.service.domain.Result;
 import com.team.service.repository.LottezyRepository;
 import com.team.service.repository.ResultRepository;
+import com.team.service.util.StringUtil;
 
 @Service
 public class ResultService {
@@ -21,10 +23,10 @@ public class ResultService {
 	ResultRepository resultRepository;
 
 	public void initData() {
-//		lottezyRepository.insert(new Lottezy("Xổ số Miền Bắc", "MB"));
-//		lottezyRepository.insert(new Lottezy("Xổ số Miền Nam", "MN"));
-//		lottezyRepository.insert(new Lottezy("Xổ số Nam Định", "ND"));
-		
+		// lottezyRepository.insert(new Lottezy("Xổ số Miền Bắc", "MB"));
+		// lottezyRepository.insert(new Lottezy("Xổ số Miền Nam", "MN"));
+		// lottezyRepository.insert(new Lottezy("Xổ số Nam Định", "ND"));
+
 		List<String> specialPrize = new ArrayList<String>();
 		List<String> firstPrize = new ArrayList<String>();
 		List<String> secondPrize = new ArrayList<String>();
@@ -51,14 +53,12 @@ public class ResultService {
 		fiftyPrize.add("012345");
 		fiftyPrize.add("012345");
 
-		Date date = new Date(System.currentTimeMillis());
-		date.setHours(0);
-		date.setMinutes(0);
-		date.setSeconds(0);
+		Calendar now = Calendar.getInstance();
 		
 		Result result = new Result();
-		result.setDateTime(date.getTime());
-		result.setLottezyId("59e63b290cab9d375895c298");
+		int month = now.get(Calendar.MONTH)+1;
+		result.setDateTime(now.get(Calendar.YEAR)+"-"+month+"-"+now.get(Calendar.DATE));
+		result.setLottezyId("59e63b290cab9d375895c296");
 		result.setSpecialPrize(specialPrize);
 		result.setFirstPrize(firstPrize);
 		result.setSecondPrize(secondPrize);
@@ -67,7 +67,7 @@ public class ResultService {
 		result.setFiftyPrize(fiftyPrize);
 		
 		resultRepository.insert(result);
-		
+
 	}
 
 	public List<Lottezy> getListLottezy() {
@@ -83,16 +83,14 @@ public class ResultService {
 	}
 
 	public Result getResult(String lottezyId, String dateTime) {
-        // dateTime format yyyy-MM-dd 		
-//		Result result = resultRepository.findByLottezyIdAndDateTime(lottezyId,
-//				dateTime.getTime());
-		return null;
+		// dateTime format yyyy-MM-dd
+		Result result = resultRepository.findByLottezyIdAndDateTime(lottezyId,dateTime);
+		return result;
 	}
 
 	public Result getResultNearest(String lottezyId) throws Exception {
-		Sort sort = new Sort(Sort.Direction.ASC, "time");
+		Sort sort = new Sort(Sort.Direction.DESC, "time");
 		List<Result> result = resultRepository.findByLottezyId(lottezyId, sort);
-		System.out.println(result.toString());
 		if (result == null || result.isEmpty()) {
 			throw new Exception();
 		}

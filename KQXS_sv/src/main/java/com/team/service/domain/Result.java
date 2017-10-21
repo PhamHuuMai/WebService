@@ -11,7 +11,7 @@ public class Result {
 	@Id
 	private String id;
 	@Field("time")
-	private long dateTime;
+	private String dateTime;
 	@Field("lottezy_id")
 	private String lottezyId;
 	@Field("special_prize")
@@ -35,11 +35,11 @@ public class Result {
 		this.id = id;
 	}
 
-	public long getDateTime() {
+	public String getDateTime() {
 		return dateTime;
 	}
 
-	public void setDateTime(long dateTime) {
+	public void setDateTime(String dateTime) {
 		this.dateTime = dateTime;
 	}
 
