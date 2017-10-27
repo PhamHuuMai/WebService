@@ -37,11 +37,22 @@ public class APIService {
 			resultDTO.setLottezyName(data.getString("lottezyName"));
 			resultDTO.setDate(data.getString("date"));
 			
+			resultDTO.setSpecial(JSONUtils.getFromListLotto(data.getJSONArray("special")));
 			resultDTO.setSpecialPrize(JSONUtils.getFromList(data.getJSONArray("specialPrize")));
+			
+			resultDTO.setFirst(JSONUtils.getFromListLotto(data.getJSONArray("first")));
 			resultDTO.setFirstPrize(JSONUtils.getFromList(data.getJSONArray("firstPrize")));
+			
+			resultDTO.setFifty(JSONUtils.getFromListLotto(data.getJSONArray("fifty")));
 			resultDTO.setFiftyPrize(JSONUtils.getFromList(data.getJSONArray("fiftyPrize")));
+			
+			resultDTO.setFourty(JSONUtils.getFromListLotto(data.getJSONArray("fourty")));
 			resultDTO.setFourtyPrize(JSONUtils.getFromList(data.getJSONArray("fourtyPrize")));
+			
+			resultDTO.setThird(JSONUtils.getFromListLotto(data.getJSONArray("third")));
 			resultDTO.setThirdPrize(JSONUtils.getFromList(data.getJSONArray("thirdPrize")));
+			
+			resultDTO.setSecond(JSONUtils.getFromListLotto(data.getJSONArray("second")));
 			resultDTO.setSecondPrize(JSONUtils.getFromList(data.getJSONArray("secondPrize")));
 		} else {
 			throw new Exception();

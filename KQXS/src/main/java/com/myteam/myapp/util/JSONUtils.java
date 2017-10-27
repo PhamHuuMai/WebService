@@ -15,4 +15,12 @@ public class JSONUtils {
 		}
 		return result;
 	}
+
+	public static String getFromListLotto(JSONArray listNumber) {
+		String result = "";
+		for (Object object : listNumber) {
+			result = result + object.toString() + " , ";
+		}
+		return result;
+	}
 }

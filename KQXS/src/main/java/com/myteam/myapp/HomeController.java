@@ -43,7 +43,7 @@ public class HomeController {
 		} catch (Exception e) {
 			return "error";
 		}
-		return "ResultTable";
+		return "resulttable";
 	}
 
 	@RequestMapping(value = "/lottezies", method = RequestMethod.GET)

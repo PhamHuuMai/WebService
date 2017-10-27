@@ -20,6 +20,7 @@ import com.team.service.Response.ResultResponse;
 import com.team.service.domain.Lottezy;
 import com.team.service.domain.Result;
 import com.team.service.service.ResultService;
+import com.team.service.util.StringUtil;
 
 @Controller
 @RequestMapping("lottezy")
@@ -50,7 +51,7 @@ public class ResultController {
 			resultResponse.setLottezyId(lottezy.getId());
 			resultResponse.setLottezyName(lottezy.getName());
 			Result result = new Result();
-			if (date == null || date.isEmpty() ) {
+			if (date == null || date.isEmpty()) {
 				// GET result nearest
 				result = resultService.getResultNearest(lottezyId);
 				System.out.println("not null");
@@ -66,12 +67,23 @@ public class ResultController {
 			// mapper result vs ResultResponse
 			resultResponse.setDate(result.getDateTime());
 			resultResponse.setSpecialPrize(result.getSpecialPrize());
+			resultResponse.setSpecial(StringUtil.computePrize2LastDigit(result
+					.getSpecialPrize()));
 			resultResponse.setFirstPrize(result.getFirstPrize());
+			resultResponse.setFirst(StringUtil.computePrize2LastDigit(result
+					.getFirstPrize()));
 			resultResponse.setSecondPrize(result.getSecondPrize());
+			resultResponse.setSecond(StringUtil.computePrize2LastDigit(result
+					.getSecondPrize()));
 			resultResponse.setThirdPrize(result.getThirdPrize());
+			resultResponse.setThird(StringUtil.computePrize2LastDigit(result
+					.getThirdPrize()));
 			resultResponse.setFourtyPrize(result.getFourtyPrize());
+			resultResponse.setFourty(StringUtil.computePrize2LastDigit(result
+					.getFourtyPrize()));
 			resultResponse.setFiftyPrize(result.getFourtyPrize());
-
+			resultResponse.setFifty(StringUtil.computePrize2LastDigit(result
+					.getFiftyPrize()));
 			// get data by lottezyId to resultResponse
 			response.setData(resultResponse);
 			response.setCode(0);

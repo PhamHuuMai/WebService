@@ -17,7 +17,7 @@
 			<tr>
 				<td title="Giải ĐB">ĐB</td>
 				<td><em>${prizes.specialPrize}</em></td>
-				<td><em>${prizes.specialPrize}</em></td>
+				<td><em style="color:red;">${prizes.special}</em></td>
 			</tr>
 			<tr>
 				<td title="Giải nhất">G1</td>
@@ -25,7 +25,7 @@
 					<p>${prizes.firstPrize}</p>
 				</td>
 				<td>
-					<p>${prizes.firstPrize}</p>
+					<p>${prizes.first}</p>
 				</td>
 			</tr>
 			<tr>
@@ -34,7 +34,7 @@
 					<p>${prizes.secondPrize}</p>
 				</td>
 				<td>
-					<p>${prizes.firstPrize}</p>
+					<p>${prizes.second}</p>
 				</td>
 			</tr>
 			<tr>
@@ -43,7 +43,7 @@
 					<p>${prizes.thirdPrize}</p>
 				</td>
 				<td>
-					<p>${prizes.firstPrize}</p>
+					<p>${prizes.third}</p>
 				</td>
 			</tr>
 			<tr>
@@ -52,7 +52,7 @@
 					<p>${prizes.fourtyPrize}</p>
 				</td>
 				<td>
-					<p>${prizes.firstPrize}</p>
+					<p>${prizes.fourty}</p>
 				</td>
 			</tr>
 			<tr>
@@ -61,7 +61,7 @@
 					<p>${prizes.fiftyPrize}</p>
 				</td>
 				<td>
-					<p>${prizes.firstPrize}</p>
+					<p>${prizes.fifty}</p>
 				</td>
 			</tr>
 		</tbody>

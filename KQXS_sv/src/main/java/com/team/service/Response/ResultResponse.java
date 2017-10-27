@@ -5,13 +5,67 @@ import java.util.List;
 public class ResultResponse {
 	private String lottezyId;
 	private String lottezyName;
-	private String date; // ddMMyyyy
+	private String date; // yyyy-MM-dd
 	private List<String> specialPrize;
+	private List<String> special;
 	private List<String> firstPrize;
+	private List<String> first;
 	private List<String> secondPrize;
+	private List<String> second;
 	private List<String> thirdPrize;
+	private List<String> third;
 	private List<String> fourtyPrize;
+	private List<String> fourty;
 	private List<String> fiftyPrize;
+	private List<String> fifty;
+
+	public List<String> getSpecial() {
+		return special;
+	}
+
+	public void setSpecial(List<String> special) {
+		this.special = special;
+	}
+
+	public List<String> getFirst() {
+		return first;
+	}
+
+	public void setFirst(List<String> first) {
+		this.first = first;
+	}
+
+	public List<String> getSecond() {
+		return second;
+	}
+
+	public void setSecond(List<String> second) {
+		this.second = second;
+	}
+
+	public List<String> getThird() {
+		return third;
+	}
+
+	public void setThird(List<String> third) {
+		this.third = third;
+	}
+
+	public List<String> getFourty() {
+		return fourty;
+	}
+
+	public void setFourty(List<String> fourty) {
+		this.fourty = fourty;
+	}
+
+	public List<String> getFifty() {
+		return fifty;
+	}
+
+	public void setFifty(List<String> fifty) {
+		this.fifty = fifty;
+	}
 
 	public List<String> getFirstPrize() {
 		return firstPrize;
